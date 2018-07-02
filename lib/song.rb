@@ -9,5 +9,66 @@ class Song
   def save
     self.class.all << self
   end
+  
+  def self.create
+    new_song = self.new
+    @@all << new_song
+    new_song
+  end
+  
+  def self.create_by_name(name)
+    new_song = self.new
+    new_song.name = name
+    @@all << new_song
+    new_song
+  end
+  
+  def self.new_by_name(name)
+    new_song = self.new
+    new_song.name = name
+    @@all << new_song
+    new_song
+  end
+  
+  def self.find_by_name(name)
+    self.all.detect do |song|
+      song.name == name
+    end
+  end
+  
+  def self.find_or_create_by_name(name)
+    if self.find_by_name(name) != nil
+      self.find_by_name(name)
+    else
+      self.create_by_name(name)
+    end
+  end
+  
+  def self.alphabetical
+    self.all.sort_by{|song| song.name}
+  end
+  
+  def self.new_from_filename(filename)    #"Artist - Title.mp3"
+    new_song = self.new
+    
+    #cut out the ".mp3" from the filename
+    filename = filename.chomp(".mp3")
+    
+    #splits into 2x1 array [Artist, Title]
+    data = filename.split(" - ")
+    new_song.artist_name = data[0]
+    new_song.name = data[1]
+    new_song
+  end
+  
+  def self.create_from_filename(filename)
+    new_song = self.new_from_filename(filename)
+    @@all << new_song
+    new_song
+  end
+  
+  def self.destroy_all
+    @@all = [] #resets to empty array
+  end
 
 end
