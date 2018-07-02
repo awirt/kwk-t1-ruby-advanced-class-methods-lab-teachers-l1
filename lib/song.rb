@@ -52,6 +52,7 @@ class Song
     #cut out the ".mp3" from the filename
     filename = filename.chomp(".mp3")
     data = filename.split(" - ")
+    
   end
 
 end
