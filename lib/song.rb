@@ -60,5 +60,8 @@ class Song
     new_song.name = data[1]
     new_song
   end
+  
+  def self.create_from_filename(filename)
+  end
 
 end
