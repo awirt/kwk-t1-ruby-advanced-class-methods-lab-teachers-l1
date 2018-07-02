@@ -24,7 +24,7 @@ class Song
   end
   
   def self.find_by_name
-    
+    self.all.detect 
   end
 
 end
