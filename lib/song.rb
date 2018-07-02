@@ -49,6 +49,7 @@ class Song
   end
   
   def self.new_from_filename(filename)    #"Artist - Title.mp3"
+    new_song = self.new
     #cut out the ".mp3" from the filename
     filename = filename.chomp(".mp3")
     data = filename.split(" - ")
