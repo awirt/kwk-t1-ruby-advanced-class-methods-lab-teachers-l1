@@ -50,7 +50,7 @@ class Song
   
   def self.new_from_filename(filename)    #"Artist - Title.mp3"
     #cut out the ".mp3" from the filename
-    filename = filename
+    filename = filename.chomp(".mp3")
     
   end
 
