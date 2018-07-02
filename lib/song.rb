@@ -48,7 +48,8 @@ class Song
     self.all.sort_by{|song| song.name}
   end
   
-  def self.new_from_filename(filename)
+  def self.new_from_filename(filename)    #"Artist - Title.mp3"
+    #cut out the ".mp3" from the filename
     
   end
 
